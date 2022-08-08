@@ -17,9 +17,9 @@
   }
 
   .product-container {
-    @apply max-w-sm rounded border shadow-md bg-white border-rs-blue
+    @apply max-w-sm rounded border shadow-md bg-white border-rs-blue p-3 
     hover:shadow-lg hover:bg-rs-bg hover:border-rs-darkBlue transition duration-200
-    flex flex-col items-center p-3 
+   
   }
 
   .section{
