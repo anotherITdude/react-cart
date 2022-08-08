@@ -7,10 +7,10 @@ const Product = (): JSX.Element => {
   return (
     <div className="product-container">
       <div className="flex flex-col items-center justify-around">
-        {/* <StoreImage width="200" height="200"
+        <StoreImage width="200" height="200"
           src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
           alt="test"
-        /> */}
+        />
         <div className="m-2  text-lg font-bold tracking-tight text-black">
           Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
         </div>

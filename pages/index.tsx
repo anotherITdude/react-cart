@@ -17,7 +17,8 @@ const Home = (): JSX.Element => {
 
       {/* Product List */}
       <section className='section'>
-      <Product />
+        product section
+      {/* <Product /> */}
       </section>
       {/* Product List */}
 
