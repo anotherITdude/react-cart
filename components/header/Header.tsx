@@ -1,6 +1,8 @@
 import React from "react";
 import Logo from "../core/Logo";
 import Link from "next/link";
+import StoreImage from "../core/Image";
+
 import { ShoppingCartIcon } from "@heroicons/react/solid";
 
 const header = (): JSX.Element => {
@@ -13,7 +15,7 @@ const header = (): JSX.Element => {
       >
         <Link href="/" className="">
           <a>
-            <Logo />
+            <StoreImage width='150' height='43' src='/react-store.png' alt='logo' />
           </a>
         </Link>
 

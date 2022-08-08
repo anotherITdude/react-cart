@@ -11,6 +11,20 @@
   .cartIcon {
     @apply h-9 w-9 text-rs-blue hover:text-rs-darkBlue ;
   }
+
+  .starIcon {
+    @apply h-6 w-6 text-rs-blue hover:text-rs-darkBlue;
+  }
+
+  .product-container {
+    @apply max-w-sm rounded border shadow-md bg-white border-rs-blue
+    hover:shadow-lg hover:bg-rs-bg hover:border-rs-darkBlue transition duration-200
+    flex flex-col items-center p-3 
+  }
+
+  .section{
+    @apply xl:container xl:mx-auto mr-2 ml-2 mt-8 mb-8;
+  }
   
 }
 

@@ -1,17 +1,27 @@
-import Header from '../components/header/Header';
+import Navbar from '../components/header/Header';
 import Head from 'next/head'
+import Product from '../components/product/Product';
 
 const Home = (): JSX.Element => {
   return (
     <div className=''>
       <Head >
       <title>Anotheritdude | React Store</title>
-      <link rel="icon" type="image/x-icon" href='https://ibb.co/SDSkKtt' />
+      {/* <link rel="icon" type="image/x-icon" href='https://ibb.co/SDSkKtt' /> */}
       </Head>
-      <Header />
-      <h1 className=' text-rs-blue text-2xl mt-11 mb-11 text-center'>
-        ReactJS/Tailwind Shopping cart using nextJS
-      </h1>
+      
+      {/* Navbar */}
+      <Navbar />
+      {/* Navbar */}
+
+
+      {/* Product List */}
+      <section className='section'>
+      <Product />
+      </section>
+      {/* Product List */}
+
+
       <footer>
         
       </footer>

@@ -8,7 +8,8 @@ module.exports = {
     extend: {
       colors: {
         'rs-blue':'#279ae6',
-        'rs-darkBlue': '#1A8EDB'
+        'rs-darkBlue': '#1A8EDB',
+        'rs-bg': '#f8fafb'
       },
       borderWidth: {
         DEFAULT: '1px',
