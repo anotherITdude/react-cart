@@ -5,8 +5,8 @@ const nextConfig = {
     loader: 'akamai',
     path: '',
     },
-  //basePath: '/react-cart',
-  //assetPrefix: '/react-cart', 
+  basePath: '/react-cart',
+  assetPrefix: '/react-cart', 
   swcMinify: true,
 }
 
