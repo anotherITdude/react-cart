@@ -7,7 +7,7 @@ const Home = (): JSX.Element => {
     <div className=''>
       <Head >
       <title>Anotheritdude | React Store</title>
-      {/* <link rel="icon" type="image/x-icon" href='https://ibb.co/SDSkKtt' /> */}
+      <link rel="icon" type="image/x-icon" href='https://i.postimg.cc/KcLT1WsV/favicon.png' />
       </Head>
       
       {/* Navbar */}
