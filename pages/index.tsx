@@ -1,16 +1,22 @@
+import Header from '../components/header/Header';
+import Head from 'next/head'
 
-import styles from '../styles/Home.module.css'
-
-export default function Home() {
+const Home = (): JSX.Element => {
   return (
     <div className=''>
-     
-      <h1 className=' text-2xl mt-11 mb-11 text-center'>
+      <Head>
+      <title>React Store</title>
+      <link rel="icon" type="image/x-icon" href="/favicon.png" />
+      </Head>
+      <Header />
+      <h1 className=' text-rs-blue text-2xl mt-11 mb-11 text-center'>
         ReactJS/Tailwind Shopping cart using nextJS
       </h1>
-      <footer className={styles.footer}>
+      <footer>
         
       </footer>
     </div>
   )
 }
+
+export default Home;

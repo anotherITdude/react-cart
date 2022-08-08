@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 text-xs bg-rs-blue text-white font-semibold rounded-lg shadow-md hover:bg-rs-darkBlue focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+
+  .cartIcon {
+    @apply h-9 w-9 text-rs-blue hover:text-rs-darkBlue ;
+  }
+  
+}
+
 html,
 body {
   padding: 0;
@@ -24,7 +36,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: black;
+    background:#f8fafb;
   }
 }
