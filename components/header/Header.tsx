@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../core/Logo";
 import Link from "next/link";
 import StoreImage from "../core/Image";
 
