@@ -6,7 +6,7 @@ const Home = (): JSX.Element => {
     <div className=''>
       <Head>
       <title>React Store</title>
-      <link rel="icon" type="image/x-icon" href="{`${process.env.NEXT_PUBLIC_FAVICON = /react-store}`}/favicon.png" />
+      <link rel="icon" type="image/x-icon" href="../public/favicon.png" />
       </Head>
       <Header />
       <h1 className=' text-rs-blue text-2xl mt-11 mb-11 text-center'>
