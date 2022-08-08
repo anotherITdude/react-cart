@@ -2,11 +2,11 @@ import Navbar from '../components/header/Header';
 import Head from 'next/head'
 import Product from '../components/product/Product';
 
-import { reducerfunction, initialState } from './reducer';
+import { reducerfunction, initialState } from '../reducer/index';
 import { Fragment, useEffect, useReducer } from 'react';
 
-import { pContext } from './context/productContext'; 
-import { StateInterface } from './models/product';
+import { pContext } from '../context/productContext'; 
+import { StateInterface } from '../models/product';
 import product from './product';
 
 
