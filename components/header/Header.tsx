@@ -14,7 +14,7 @@ const header = (): JSX.Element => {
       >
         <Link href="/" className="">
           <a>
-            <StoreImage width='150' height='43' src='/react-store.png' alt='logo' />
+            <StoreImage width='150' height='43' src='./react-store.png' alt='logo' />
           </a>
         </Link>
 
