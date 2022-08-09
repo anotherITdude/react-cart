@@ -2,9 +2,7 @@ import Image from 'next/image';
 
 const StoreImage = (props): JSX.Element => {
     return (
-        <div className="">
             <Image width={props.width} height={props.height} src={props.src} alt={props.alt}/>
-        </div>
     )
 }
 

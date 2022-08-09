@@ -6,10 +6,10 @@ import { ShoppingCartIcon } from "@heroicons/react/solid";
 
 const header = (): JSX.Element => {
   return (
-    <div className="border-b-rs-blue bg-white pt-3 pl-2 pb-2 pr-2">
+    <div className="border-b-rs-blue z-50 bg-white pt-3 pl-2 pb-2 pr-2 sticky top-0 border">
       <div
-        className="xl:container xl:mx-auto
-            flex items-center justify-between
+        className="xl:container xl:mx-auto relative
+            flex items-center justify-between 
             "
       >
         <Link href="/" className="">
@@ -21,6 +21,7 @@ const header = (): JSX.Element => {
         <Link href="/cart" className="align-middle">
           <a>
             <ShoppingCartIcon className="cartIcon"/>
+            <span className="sup">3</span>
           </a>
         </Link>
       </div>

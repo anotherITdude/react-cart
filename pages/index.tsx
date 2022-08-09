@@ -31,6 +31,7 @@ const Home = (): JSX.Element => {
 
       {/* Navbar */}
       <Navbar />
+
       {/* Navbar */}
 
       {/* Product List */}
@@ -60,7 +61,10 @@ const Home = (): JSX.Element => {
 
       {/* Product List */}
 
-      <footer></footer>
+      <footer>
+
+        
+      </footer>
     </div>
   );
 };

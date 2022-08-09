@@ -15,6 +15,9 @@ module.exports = {
         min:'300px',
         max:'350px'
       },
+      padding: {
+        '5px': '5px',
+      },
       borderWidth: {
         DEFAULT: '1px',
         '0': '0',
