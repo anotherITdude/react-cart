@@ -6,7 +6,7 @@ export const initialState: StateInterface = {
 
 export const reducerfunction = (state:StateInterface, action:ActionInterface) => {
     
-    const { type, payload} = action;
+    const { type, payload } = action;
 
     switch(type){
         case "ADD_PRODUCTS":

@@ -11,6 +11,10 @@ module.exports = {
         'rs-darkBlue': '#1A8EDB',
         'rs-bg': '#f8fafb'
       },
+      height: {
+        min:'300px',
+        max:'350px'
+      },
       borderWidth: {
         DEFAULT: '1px',
         '0': '0',
