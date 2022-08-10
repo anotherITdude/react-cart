@@ -1,5 +1,5 @@
 export interface ProductInterface {
-    id: number;
+    id: string;
     title: string;
     price: number;
     image: string;
@@ -8,10 +8,12 @@ export interface ProductInterface {
         count: number
     };
     category: string;
+    description: string;
 }
 
 export interface StateInterface {
     products: ProductInterface[];
+    shoppingCart: ProductInterface[];
 }
 
 export interface ActionInterface{

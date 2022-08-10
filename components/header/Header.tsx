@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import StoreImage from "../core/Image";
 
 import { ShoppingCartIcon } from "@heroicons/react/solid";
+import { StateInterface } from "../../models/product";
+import { pContext } from "../../context/productContext";
+import { useRouter } from "next/router";
 
-const header = (): JSX.Element => {
+const Header = (): JSX.Element => {
+  const router = useRouter();
+    // //const state = useContext(pContext) as StateInterface;
+    // console.log(useContext(pContext)); 
   return (
     <div className="border-b-rs-blue z-50 bg-white pt-3 pl-2 pb-2 pr-2 sticky top-0 border">
       <div
@@ -29,4 +35,4 @@ const header = (): JSX.Element => {
   );
 };
 
-export default header;
+export default Header;
