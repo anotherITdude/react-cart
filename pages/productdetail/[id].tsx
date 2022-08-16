@@ -81,7 +81,7 @@ const Index: React.FC = (): JSX.Element => {
             >
               {product?.inStock ? "Add to Cart" : "Out Of Stock"}
             </button>
-          )}
+          )} 
                
               </div>
             </div>
