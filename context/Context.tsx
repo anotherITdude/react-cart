@@ -20,6 +20,7 @@ const Context = ({ children }) => {
     description: faker.commerce.productDescription(),
     fastDelivery: faker.datatype.boolean(),
     inStock: faker.helpers.arrayElement([0,3,5,6,10]),
+    qty: 0,
   }))
 
   const [ state, dispatch] = useReducer( cartReducer, {

@@ -8,6 +8,7 @@ export interface ProductInterface {
     description: string;
     fastDelivery: boolean;
     inStock: number
+    qty: number;
 }
 
 export interface StateInterface {
@@ -18,5 +19,5 @@ export interface StateInterface {
 
 export interface ActionInterface{
     type: string;
-    payload: unknown;
+    payload: any;
   }

@@ -15,7 +15,7 @@ export const cartReducer = ( state: StateInterface, action: ActionInterface ) =>
         case('ADD_TO_CART'):
         return { 
             ...state,
-            cart: [ ...state.cart, payload]
+            cart: [ ...state.cart, {...payload, qty:1} ]
         }
 
         case('REMOVE_FROM_CART'):
@@ -24,6 +24,14 @@ export const cartReducer = ( state: StateInterface, action: ActionInterface ) =>
             ...state,
             cart: state.cart.filter((product) => product.id !== payload)
         }
+
+        case ('CART_QUANTITY'):
+            return{
+                ...state,
+                cart: state.cart.filter((product) => 
+                product.id === payload.id ? (product.qty = parseInt(payload.qty)) : product.qty
+                ),
+            }
 
     
         default:

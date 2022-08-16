@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
-import Button from "../../components/core/Button";
 import { CartState } from "../../context/Context";
 import StoreImage from "../../components/core/Image";
 
-const index = () => {
+const Index = () => {
   const { state, dispatch } = CartState();
-  console.log;
+  const [ total, setTotal] = useState();
+  useEffect(() => {
+    setTotal( state.cart.reduce(( accumulator, presentProduct) => accumulator + parseInt(presentProduct.price) * presentProduct.qty, 0));
+  }, [state.cart])
   return (
     <div>
       <Header />
 
       <section className=" section text-gray-700 body-font overflow-hidden bg-white">
-        <div className="container px-5 py-10  sm:w-full  mx-auto flex flex-wrap">
-            {state.cart.map((product) => (
-              <div key={product.id} className="cart-item w-full">
-                  <div className="flex rounded">
+        
+      {
+        state.cart.length > 0 ?
+        (
+          <div className="container grid grid-flow-row auto-rows-max ">
+        {state.cart.map( (product) => (
+          <div key={product.id} className="grid lg:grid-cols-5 sm:grid-cols-2 gap-4 
+          border-b pb-2  border-b-blue-200 mb-2 items-center">
+          <div>
+          <div className="flex rounded">
                     <StoreImage
                       width="100"
                       height="100"
@@ -23,15 +31,37 @@ const index = () => {
                       alt={product.name}
                     />
                   </div>
-                  <div className="flex ">
-                    <div>{product.name} </div>
-                    
-                    
-                    
-                   
-                  </div>
-                  <div>${product.price}</div>
-                  <div>
+          </div>
+          <div>{product.name}</div>
+          <div>${product.price}</div>
+          <div>
+            <div className="relative">
+              <select value={product.qty} 
+              onChange={
+                (e) => dispatch({
+                  type: 'CART_QUANTITY',
+                  payload:{
+                    id: product.id,
+                    qty: e.target.value
+                  }
+                })
+              }
+              className="rounded bg-rs-bg border appearance-none border-gray-400 py-2 focus:outline-none focus:border-rs-blue text-base pl-3 pr-10">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+             
+            </div>
+          </div>
+          <div>
                       {state.cart.some((p) => p.id === product.id) ? (
                         <button
                           onClick={() => {
@@ -43,7 +73,7 @@ const index = () => {
                           type="submit"
                           className="btn-danger"
                         >
-                          Remove From Cart
+                          X
                         </button>
                       ) : (
                         <button
@@ -60,12 +90,34 @@ const index = () => {
                         </button>
                       )}
                     </div>
-              </div>
-            ))}
-        </div>
+                    
+          </div>
+          
+        ))} 
+        
+        <div className='h-24 text-2xl items-center flex justify-center '>
+            <h1 className="text-rs-blue text-center">
+              Total:  ${total}
+            </h1>
+          </div>  
+        
+    </div>
+    
+        )
+        :
+        (
+          <div className='h-24 text-2xl items-center flex justify-center '>
+            <h1 className="text-rs-blue text-center">Your cart is empty</h1>
+          </div>
+         
+          
+        )
+      }
+    
+      
       </section>
     </div>
   );
 };
 
-export default index;
+export default Index;
