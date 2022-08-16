@@ -1,19 +1,17 @@
 import Header from "../../components/header/Header";
-import React, { Fragment, useContext, useEffect, useReducer } from "react";
+import React  from "react";
 import { useRouter } from "next/router";
-import { pContext } from "../../context/productContext";
-import { ProductInterface, StateInterface } from "../../models/product";
+import { ProductInterface } from "../../models/product";
 import StoreImage from "../../components/core/Image";
-import Button from "../../components/core/Button";
+import  { CartState } from "../../context/Context";
 
 const Index: React.FC = (): JSX.Element => {
   const router = useRouter();
-  const state = useContext(pContext) as StateInterface;
-
-  const product: ProductInterface = state?.products.find(
-    (product) => product.id == router.query.id
+  const { state, dispatch } = CartState();
+ 
+  const product: ProductInterface = state.products.find(
+    (product) => product.id === router.query.id
   ) as ProductInterface;
-  console.log(product);
   return (
     <div>
       <Header />
@@ -27,7 +25,7 @@ const Index: React.FC = (): JSX.Element => {
                 width="200"
                 height="200"
                 src={product?.image}
-                alt={product?.title}
+                alt={product?.name}
               />
             </div>
 
@@ -36,7 +34,7 @@ const Index: React.FC = (): JSX.Element => {
                 {product?.category}
               </h2>
               <h1 className="text-gray-900 text-2xl title-font font-medium mb-2">
-                {product?.title}
+                {product?.name}
               </h1>
 
               <p className="leading-relaxed">{product?.description}</p>
@@ -58,7 +56,33 @@ const Index: React.FC = (): JSX.Element => {
                 <span className="title-font font-medium text-2xl text-black">
                   ${product?.price}
                 </span>
-                <Button className="flex ml-auto " title="Add to Cart" />
+                
+                {state.cart.some((p) => p.id === product.id) ? (
+            <button
+              onClick={() => {
+                dispatch({
+                  type: "REMOVE_FROM_CART",
+                  payload: product.id,
+                });
+              }}
+              type="submit"
+              className="btn-danger"
+            >
+              Remove From Cart
+            </button>
+          ) : (
+            <button
+              onClick={() =>
+                dispatch({ type: "ADD_TO_CART", payload: product })
+              }
+              type="submit"
+              disabled={product?.inStock ? false : true}
+              className={product?.inStock ? "btn-primary" : "btn-out-of-stock"}
+            >
+              {product?.inStock ? "Add to Cart" : "Out Of Stock"}
+            </button>
+          )}
+               
               </div>
             </div>
           </div>

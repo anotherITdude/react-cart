@@ -1,14 +1,14 @@
 import Navbar from "../components/header/Header";
 import Head from "next/head";
+import { Fragment } from "react";
+import { CartState } from "../context/Context";
 import Product from "../components/product/Product";
-
-import { reducerfunction, initialState } from "../reducer/index";
-import { Fragment, useContext, useEffect, useReducer } from "react";
-import { pContext } from "../context/productContext";
-import { StateInterface } from "../models/product";
+import Filter from "../components/filter/Filter";
 
 const Home = (): JSX.Element => {
-  const state = useContext(pContext) as StateInterface;
+  const {
+    state: { products, dispatch },
+  } = CartState();
   return (
     <div className="">
       <Head>
@@ -22,24 +22,19 @@ const Home = (): JSX.Element => {
 
       {/* Navbar */}
       <Navbar />
+      {/* Navbar */}
 
+      {/* Navbar */}
+      <Filter />
       {/* Navbar */}
 
       {/* Product List */}
       <section className="flex flex-wrap section">
-        {state.products.length ? (
+        {products.length ? (
           <Fragment>
-            {state.products.map((product) => (
-              <div key={product.id} className="item">
-                <Product
-                  key={product.id}
-                  id={product.id}
-                  title={product.title}
-                  price={product.price}
-                  image={product.image}
-                  category={product.category}
-                  rating={product.rating.rate}
-                />
+            {products.map((props) => (
+              <div key={props.id} className="item">
+                <Product key={props.id} product={props} />
               </div>
             ))}
           </Fragment>

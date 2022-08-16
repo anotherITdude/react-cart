@@ -1,19 +1,19 @@
 export interface ProductInterface {
     id: string;
-    title: string;
+    name: string;
     price: number;
     image: string;
-    rating: {
-        rate: number,
-        count: number
-    };
+    ratings: number;
     category: string;
     description: string;
+    fastDelivery: boolean;
+    inStock: number
 }
 
 export interface StateInterface {
-    products: ProductInterface[];
-    shoppingCart: ProductInterface[];
+    products?: ProductInterface[];
+    cart?: ProductInterface[];
+   
 }
 
 export interface ActionInterface{

@@ -3,14 +3,12 @@ import Link from "next/link";
 import StoreImage from "../core/Image";
 
 import { ShoppingCartIcon } from "@heroicons/react/solid";
-import { StateInterface } from "../../models/product";
-import { pContext } from "../../context/productContext";
 import { useRouter } from "next/router";
+import { CartState } from "../../context/Context";
 
 const Header = (): JSX.Element => {
   const router = useRouter();
-    // //const state = useContext(pContext) as StateInterface;
-    // console.log(useContext(pContext)); 
+  const { state: { products, cart}} = CartState();
   return (
     <div className="border-b-rs-blue z-50 bg-white pt-3 pl-2 pb-2 pr-2 sticky top-0 border">
       <div
@@ -27,7 +25,7 @@ const Header = (): JSX.Element => {
         <Link href="/cart" className="align-middle">
           <a>
             <ShoppingCartIcon className="cartIcon"/>
-            <span className="sup">3</span>
+            <span className="sup">{cart.length}</span>
           </a>
         </Link>
       </div>
