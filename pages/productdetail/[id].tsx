@@ -38,20 +38,7 @@ const Index: React.FC = (): JSX.Element => {
               </h1>
 
               <p className="leading-relaxed">{product?.description}</p>
-              <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                <div className="flex ml-6 items-center">
-                  <span className="mr-3">Size</span>
-                  {/* <div className="relative">
-              <select className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
-                <option>SM</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-              </select>
-             
-            </div> */}
-                </div>
-              </div>
+              
               <div className="flex justify-between">
                 <span className="title-font font-medium text-2xl text-black">
                   ${product?.price}
@@ -81,7 +68,7 @@ const Index: React.FC = (): JSX.Element => {
             >
               {product?.inStock ? "Add to Cart" : "Out Of Stock"}
             </button>
-          )} 
+          )}
                
               </div>
             </div>

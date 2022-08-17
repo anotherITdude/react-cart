@@ -14,6 +14,8 @@ export interface ProductInterface {
 export interface StateInterface {
     products?: ProductInterface[];
     cart?: ProductInterface[];
+    byStock?: boolean
+    byFastDelivery?: boolean
    
 }
 

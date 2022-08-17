@@ -5,12 +5,20 @@ import StoreImage from "../core/Image";
 import { ShoppingCartIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { CartState } from "../../context/Context";
+import Head from "next/head";
 
 const Header = (): JSX.Element => {
   const router = useRouter();
-  const { state: { products, cart}} = CartState();
+  const { state: { products, cart},
+  productState,
+  productDispatch} = CartState();
+
+  
+
   return (
-    <div className="border-b-rs-blue z-50 bg-white pt-3 pl-2 pb-2 pr-2 sticky top-0 border">
+    <div className='sticky'>
+      
+    <div className="border-b-rs-blue z-50 bg-white pt-3 pl-2 pb-2 pr-2 top-0 border">
       <div
         className="xl:container xl:mx-auto relative
             flex items-center justify-between 
@@ -21,6 +29,20 @@ const Header = (): JSX.Element => {
             <StoreImage width='150' height='43' src='https://i.postimg.cc/KzFvH9xq/react-store.png' alt='logo' />
           </a>
         </Link>
+        <input 
+         className='bg-rs-bg border p-1 
+         border-rs-blue lg:w-96 sm:w-50 mob:w-32'  
+         type="text" 
+         placeholder="Search Products..."
+         onChange={(e) => {          
+          productDispatch({
+            type: 'BY_SEARCH',
+            payload: e.target.value
+          })
+         }}
+         value={productState.bySearchString}
+         />
+
 
         <Link href="/cart" className="align-middle">
           <a>
@@ -29,6 +51,7 @@ const Header = (): JSX.Element => {
           </a>
         </Link>
       </div>
+    </div>
     </div>
   );
 };

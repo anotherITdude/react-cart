@@ -1,12 +1,26 @@
 import React from "react";
 import { FilterIcon, SearchCircleIcon } from "@heroicons/react/solid";
+import { CartState } from "../../context/Context";
 
-const Filter = () => {
+const Filter = (props) => {
+
+  const { productState: {
+    sort, byFastDelivery, byStock, bySearchString
+  } , productDispatch } = CartState();
+
+  //console.log(sort, byFastDelivery, byStock, bySearchString)
+
   return (
     <div className="section">
       <div className="flex justify-center  items-center mb-2">
       <span ><FilterIcon className="filterIcon" /></span>
-      <span >Filter Products</span>
+      <span >Filter Products 
+        {
+        props.count ? <span>( Product Count: {props.count} )</span>
+        :
+        <span></span>
+        }
+      </span>
       </div>
       
       <form className="filter-container">
@@ -17,6 +31,13 @@ const Filter = () => {
               name="pricefilter"
               className="pr-2"
               value="ascending"
+              onChange={(e) => {
+                productDispatch({
+                  type: 'SORT_BY_PRICE',
+                  payload: 'lowToHigh'
+                })
+              }}
+              checked={ sort === 'lowToHigh' ? true : false }
             />
             <label htmlFor="priceASC" className="pl-1">
               Price Ascending
@@ -30,6 +51,13 @@ const Filter = () => {
               name="pricefilter"
               className="pr-2"
               value="decending"
+              onChange={(e) => {
+                productDispatch({
+                  type: 'SORT_BY_PRICE',
+                  payload: 'highToLow'
+                })
+              }}
+              checked={ sort === 'highToLow' ? true : false }
             />
             <label htmlFor="priceDES" className="pl-1">
               Price Decending
@@ -43,6 +71,13 @@ const Filter = () => {
               name="pricefilter"
               className="pr-2"
               value="decending"
+              onChange={() => {
+                productDispatch({
+                  type: 'SORT_BY_DELIVERY'
+                })
+              }}
+              checked={byFastDelivery}
+              
             />
             <label htmlFor="fastDelivery" className="pl-1">
               Fast Delivery
@@ -56,6 +91,12 @@ const Filter = () => {
               name="pricefilter"
               className="pr-2"
               value="decending"
+              onChange={() => {
+                productDispatch({
+                  type: 'SORT_BY_STOCK'
+                })
+              }}
+              checked={byStock}
             />
             <label htmlFor="outOfStock" className="pl-1">
               Show Out Of Stock

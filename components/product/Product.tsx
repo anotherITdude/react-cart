@@ -3,10 +3,9 @@ import StoreImage from "../core/Image";
 import { StarIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { CartState } from "../../context/Context";
-
+ 
 const Product = ({ product }): JSX.Element => {
   const { state, dispatch } = CartState();
-  console.log(state);
   return (
     <div className="product-container relative h-max">
       <Link href={`/productdetail/${encodeURIComponent(product.id)}`}>
