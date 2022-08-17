@@ -1,6 +1,5 @@
 ## Demo Shopping Cart using React/NextJS/Typescript/TailwindCSS
 
-<details>
   <ol>
     <li>React</li>
     <li>NextJS</li>
@@ -10,7 +9,6 @@
 </a></li>
    
   </ol>
-</details>
 
 
 ## View Online
