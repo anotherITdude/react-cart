@@ -23,7 +23,7 @@ const Filter = (props) => {
       </span>
       </div>
       
-      <form className="filter-container">
+      <form className="filter-container items-center">
           <div className="m-2">
             <input
               type="radio"
@@ -101,6 +101,22 @@ const Filter = (props) => {
             <label htmlFor="outOfStock" className="pl-1">
               Show Out Of Stock
             </label>
+          </div>
+
+          <div className="m-2">
+            <button 
+            type='button'
+            className='btn-primary'
+            onClick={(e) => {
+              e.preventDefault
+              productDispatch({
+                type: 'RESET'
+              })
+            }}
+            >
+
+              Reset Search
+            </button>
           </div>
       </form>
     </div>
