@@ -14,7 +14,7 @@ const Context = ({ children }) => {
     id: faker.datatype.uuid(), 
     name: faker.commerce.productName(),
     price: parseInt(faker.commerce.price(100, 500, 3)),
-    image: faker.image.image(),
+    image: 'https://via.placeholder.com/400',
     ratings: faker.helpers.arrayElement([1,2,3,4,5]),
     category: faker.commerce.department(),
     description: faker.commerce.productDescription(),

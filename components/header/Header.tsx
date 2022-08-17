@@ -20,7 +20,8 @@ const Header = (): JSX.Element => {
     <Head>
     <title>Anotheritdude | NextJS/TypeScript Shopping Cart Using Tailwind CSS</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>  
+        <link rel="shortcut icon" href="https://ibb.co/8rJDzZy" />
+    </Head> 
     <div className="border-b-rs-blue z-50 bg-white pt-3 pl-2 pb-2 pr-2 top-0 border">
       <div
         className="xl:container xl:mx-auto relative
