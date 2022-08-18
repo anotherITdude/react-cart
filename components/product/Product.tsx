@@ -3,9 +3,11 @@ import StoreImage from "../core/Image";
 import { StarIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { CartState } from "../../context/Context";
- 
+import { Box, useToast } from '@chakra-ui/react'
+
 const Product = ({ product }): JSX.Element => {
   const { state, dispatch } = CartState();
+  const toast = useToast()
   return (
     <div className="product-container relative h-max">
       <Link href={`/productdetail/${encodeURIComponent(product.id)}`}>
@@ -35,6 +37,15 @@ const Product = ({ product }): JSX.Element => {
                   type: "REMOVE_FROM_CART",
                   payload: product.id,
                 });
+                toast({
+                  isClosable: true,
+                  duration: 1500,
+                  render: () => (
+                    <Box className='bg-red-600 text-center' color='white' p={3} >
+                      Product removed from cart
+                    </Box>
+                  ),
+                })
               }}
               type="submit"
               className="btn-danger"
@@ -43,8 +54,19 @@ const Product = ({ product }): JSX.Element => {
             </button>
           ) : (
             <button
-              onClick={() =>
+              onClick={() =>{
                 dispatch({ type: "ADD_TO_CART", payload: product })
+                toast({
+                  isClosable: true,
+                  duration: 1500,
+                  render: () => (
+                    <Box className='bg-rs-blue text-center' color='white' p={3} >
+                      Product added to cart
+                    </Box>
+                  ),
+                })
+              }
+                
               }
               type="submit"
               disabled={product.inStock ? false : true}

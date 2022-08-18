@@ -1,7 +1,6 @@
 import React from "react";
 import { FilterIcon, SearchCircleIcon } from "@heroicons/react/solid";
 import { CartState } from "../../context/Context";
-
 const Filter = (props) => {
 
   const { productState: {
@@ -111,7 +110,8 @@ const Filter = (props) => {
               e.preventDefault
               productDispatch({
                 type: 'RESET'
-              })
+              });
+              
             }}
             >
 

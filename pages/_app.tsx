@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import Context from "../context/Context";
+import { ChakraProvider } from '@chakra-ui/react'
 
 function MyApp({ Component, pageProps }) {
   
@@ -11,9 +12,12 @@ function MyApp({ Component, pageProps }) {
   // }, []);
 
   return (
+    <ChakraProvider>
     <Context >
       <Component {...pageProps} />
     </Context>
+    </ChakraProvider>
+
   );
 }
 
